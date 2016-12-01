@@ -90,6 +90,7 @@
           "addItemForm": false,
           "editItemForm": false,
           "deleteItemButton": false,
+          "deleteItemConfirmation": true,
           "pullToRefresh": false,
           "endlessScroll": false,
           "isMapView": false,
@@ -145,7 +146,9 @@
                   "dataBindingMultipleSelectChildren": "[]",
                   "title": "Reklamation Notes",
                   "inputType": "textArea",
-                  "wideFieldTitlePosition": "top"
+                  "titlePosition": "left",
+                  "wideFieldTitlePosition": "top",
+                  "inputTextType": "text"
                 }
               ],
               "name": "editableListForm1",
@@ -167,10 +170,10 @@
     {
       "type": "kendo-ui-mobile:dataProvider",
       "name": "miet4",
-      "title": "miet4 / miet4",
       "source": "everlive",
       "everliveKey": "6e19r6m447rk5yqq",
-      "offlineStorage": true
+      "offlineStorage": true,
+      "title": "miet4 / miet4"
     }
   ],
   "name": "kendoUiMobileApp",

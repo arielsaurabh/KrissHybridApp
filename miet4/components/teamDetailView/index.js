@@ -4,6 +4,7 @@ app.teamDetailView = kendo.observable({
     onShow: function() {},
     afterShow: function() {}
 });
+app.localization.registerView('teamDetailView');
 
 // START_CUSTOM_CODE_teamDetailView
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
@@ -41,25 +42,7 @@ app.teamDetailView = kendo.observable({
                 dataSource.filter({});
             }
         },
-        processImage = function(img) {
 
-            function isAbsolute(img) {
-                if  (img && (img.slice(0,  5)  ===  'http:' || img.slice(0,  6)  ===  'https:' || img.slice(0,  2)  ===  '//'  ||  img.slice(0,  5)  ===  'data:')) {
-                    return true;
-                }
-                return false;
-            }
-
-            if (!img) {
-                var empty1x1png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=';
-                img = 'data:image/png;base64,' + empty1x1png;
-            } else if (!isAbsolute(img)) {
-                var setup = dataProvider.setup || {};
-                img = setup.scheme + ':' + setup.url + setup.appId + '/Files/' + img + '/Download';
-            }
-
-            return img;
-        },
         flattenLocationProperties = function(dataItem) {
             var propName, propValue,
                 isLocation = function(value) {
@@ -199,12 +182,12 @@ app.teamDetailView = kendo.observable({
                     itemModel.DisplayName = String.fromCharCode(160);
                 }
 
+                /// start detail form initialization
+                /// end detail form initialization
+
                 teamDetailViewModel.set('originalItem', itemModel);
                 teamDetailViewModel.set('currentItem',
                     teamDetailViewModel.fixHierarchicalData(itemModel));
-
-                /// start detail form initialization
-                /// end detail form initialization
 
                 return itemModel;
             },
@@ -215,15 +198,8 @@ app.teamDetailView = kendo.observable({
                 }
                 return linkChunks[0] + this.get('currentItem.' + linkChunks[1]);
             },
-            imageBind: function(imageField) {
-                if (!imageField) {
-                    return;
-                }
-                if (imageField.indexOf('|') > -1) {
-                    return processImage(this.get('currentItem.' + imageField.split('|')[0]));
-                }
-                return processImage(imageField);
-            },
+            /// start masterDetails view model functions
+            /// end masterDetails view model functions
             currentItem: {}
         });
 

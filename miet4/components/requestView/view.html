@@ -1,32 +1,47 @@
-<div data-role="view" data-title="Request" data-layout="main" data-model="app.requestView" data-show="app.requestView.onShow" data-after-show="app.requestView.afterShow" id="requestViewScreen" class="screen">
+<div data-role="view" data-title="View" data-layout="main" data-model="app.requestView" data-show="app.requestView.onShow" data-after-show="app.requestView.afterShow" id="requestViewScreen" class="screen">
     <div id="requestViewModel" class="form-view screen__content screen__content--form add-item-view">
-        <!--<form>
+        <form>
             <ul class="form-content" data-role="listview" data-style="inset">
             </ul>
 
-            
-        </form>-->
+            <div class="button-group">
+                <a data-role="button" data-bind="events: { click: requestViewModel.cancel }, buttonText: strings.requestView.requestViewModel.cancelButton"></a>
+                <a class="primary" data-role="button" data-bind="events: { click: requestViewModel.submit }, buttonText: strings.requestView.requestViewModel.submitButton"></a>
+            </div>
+        </form>
         <!-- START_CUSTOM_CODE_requestViewModel -->
         <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
 
         <!-- END_CUSTOM_CODE_requestViewModel -->
     </div>
+    <header data-role="header">
+        <div data-role="navbar" class="header-text">
+
+            <span data-bind="text: strings.requestView.title"></span>
+
+        </div>
+    </header>
+
 
     <!-- START_CUSTOM_CODE_requestView -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-<div> <img src="components/requestView/smiley.jpg" alt="Smiley face" height="20" width="100%">
-</div>
-<div class="row">
-     <button onclick="capturePhoto();">Capture Photo</button> <br>
-    <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-    <img style="display:none;" id="largeImage" src="" />
-   </div>
-   <div class="button-group">
-                <a data-role="button" data-bind="events: { click: requestViewModel.cancel }">Cancel</a>
-                <a class="primary" data-role="button" data-bind="events: { click: requestViewModel.submit }">Confirm</a>
-            </div>
+    <div> <img src="components/requestView/smiley.jpg" alt="Smiley face" height="20" width="100%">
+    </div>
+    <div class="row">
+        <button onclick="capturePhoto();">Capture Photo</button>
+        <br>
+        <button onclick="capturePhotoEdit();">Capture Editable Photo</button>
+        <br>
+        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button>
+        <br>
+        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button>
+        <br>
+        <img style="display:none;width:60px;height:60px;" id="smallImage" src="">
+        <img style="display:none;" id="largeImage" src="">
+    </div>
+    <div class="button-group">
+        <a data-role="button" data-bind="events: { click: requestViewModel.cancel }">Cancel</a>
+        <a class="primary" data-role="button" data-bind="events: { click: requestViewModel.submit }">Confirm</a>
+    </div>
     <!-- END_CUSTOM_CODE_requestView -->
 </div>

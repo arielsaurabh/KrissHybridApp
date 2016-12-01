@@ -34,21 +34,30 @@
         </header>
         <footer data-role="footer">
             <div data-role="tabstrip" id="navigation-container">
-                <a href="components/home/view.html" data-icon="home">Home View</a>
+                <a href="components/home/view.html" data-icon="home"><span class="navigation-link-text" data-bind="text: strings.home.title"></span></a>
 
-                <a href="components/reklamationView/view.html" data-icon="bookmarks">Reklamation</a>
-                <a href="components/requestView/view.html" data-icon="bookmarks">Request</a>
-                <a href="components/teamDetailView/view.html" data-icon="organize">Team</a>
+                <a href="components/reklamation2View/view.html" data-icon="bookmarks"><span class="navigation-link-text" data-bind="text: strings.reklamationView.title"></span></a>
+                <a href="components/requestView/view.html" data-icon="bookmarks"><span class="navigation-link-text" data-bind="text: strings.requestView.title"></span></a>
+                <a href="components/teamDetailView/view.html" data-icon="organize"><span class="navigation-link-text" data-bind="text: strings.teamDetailView.title"></span></a>
 
-                <a href="#navigation-show-more-view" data-more="true" data-icon="more">More</a>
+                <a href="#navigation-show-more-view" data-more="true" data-icon="more"><span class="navigation-link-text" data-bind="text: strings._app.navigationMore"></span></a>
+
             </div>
             <div id="navigation-container-more" style="display: none">
-                <a href="components/aboutView/view.html" data-icon="info">&#xDC;ber Uns</a><a href="components/customer2View/view.html?logout=true" data-position="end" data-icon="action">Sign Out</a><a href="components/reklamation2View/view.html" data-icon="bookmarks">Reklamation Form</a></div>
+                <a href="components/aboutView/view.html" data-icon="info"><span class="navigation-link-text" data-bind="text: strings.aboutView.title"></span></a>
+
+                <a href="components/customer2View/view.html?logout=true" data-position="end" data-icon="action"><span class="navigation-link-text" data-bind="text: strings.customer2View.customer2ViewModel.logoutLabel"></span></a><a href="components/reklamation2View/view.html"
+                data-icon="bookmarks"><span class="navigation-link-text" data-bind="text: strings.reklamation2View.title"></span></a></div>
         </footer>
     </div>
 
 
     <div id="navigation-show-more-view" data-role="view" data-title="Show More" data-layout="main">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-bind="text: strings._app.showMoreTitle"></span>
+            </div>
+        </header>
         <ul data-role="listview" data-style="inset" data-click="app.listViewClick">
         </ul>
     </div>
@@ -61,6 +70,9 @@
         </header>
         <footer data-role="footer">
         </footer>
+    </div>
+    <div id="notify" class="notify-pop-up">
+        <span class="notify-pop-up__content"></span>
     </div>
     <!--  start index html save -->
     <!--  end index html save -->

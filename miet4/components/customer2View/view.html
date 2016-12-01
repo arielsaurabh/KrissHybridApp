@@ -1,28 +1,28 @@
-<div data-role="view" data-title="Kunde" data-layout="main-nonav" data-model="app.customer2View" data-show="app.customer2View.onShow" data-after-show="app.customer2View.afterShow" id="customer2ViewScreen" class="screen">
+<div data-role="view" data-title="View" data-layout="main-nonav" data-model="app.customer2View" data-show="app.customer2View.onShow" data-after-show="app.customer2View.afterShow" id="customer2ViewScreen" class="screen">
     <div class="signin-view screen__content screen__content--signin">
         <form>
             <ul data-role="listview" data-style="inset">
                 <li>
-                    <label>Email
+                    <label><span data-bind="text: strings.customer2View.customer2ViewModel.emailLabel"></span>
                         <input type="email" data-bind="value: customer2ViewModel.email" required autofocus>
                     </label>
                 </li>
                 <li>
-                    <label>Password
+                    <label><span data-bind="text: strings.customer2View.customer2ViewModel.passwordLabel"></span>
                         <input type="password" data-bind="value: customer2ViewModel.password" required>
                     </label>
                 </li>
                 <li>
-                    <label>Remember Me
+                    <label><span data-bind="text: strings.customer2View.customer2ViewModel.remembermeLabel"></span>
                         <input type="checkbox" data-bind="checked: customer2ViewModel.rememberme">
                     </label>
                 </li>
             </ul>
 
             <div class="button-group button-group-vertical">
-                <a data-role="button" class="primary" data-bind="events: { click: customer2ViewModel.signin }">Sign In</a>
+                <a data-role="button" class="primary" data-bind="events: { click: customer2ViewModel.signin }, buttonText: strings.customer2View.customer2ViewModel.signinLabel"></a>
 
-                <a data-role="button" data-bind="events: { click: customer2ViewModel.toggleView }">Register</a>
+                <a data-role="button" data-bind="events: { click: customer2ViewModel.toggleView }, buttonText: strings.customer2View.customer2ViewModel.gotoRegisterLabel"></a>
 
             </div>
 
@@ -33,24 +33,24 @@
         <form>
             <ul data-role="listview" data-style="inset">
                 <li>
-                    <label>Email
+                    <label><span data-bind="text: strings.customer2View.customer2ViewModel.registerEmailLabel"></span>
                         <input type="email" data-bind="value: customer2ViewModel.email" required>
                     </label>
                 </li>
                 <li>
-                    <label>Password
+                    <label><span data-bind="text: strings.customer2View.customer2ViewModel.registerPasswordLabel"></span>
                         <input type="password" data-bind="value: customer2ViewModel.password">
                     </label>
                 </li>
                 <li>
-                    <label>Name
+                    <label><span data-bind="text: strings.customer2View.customer2ViewModel.registerNameLabel"></span>
                         <input type="text" data-bind="value: customer2ViewModel.displayName">
                     </label>
                 </li>
             </ul>
             <div class="button-group button-group-vertical">
-                <a class="primary" data-role="button" data-bind="events: { click: customer2ViewModel.register }">Register</a>
-                <a data-role="button" data-bind="events: { click: customer2ViewModel.toggleView }">Sign In</a>
+                <a class="primary" data-role="button" data-bind="events: { click: customer2ViewModel.register }, buttonText: strings.customer2View.customer2ViewModel.registerLabel"></a>
+                <a data-role="button" data-bind="events: { click: customer2ViewModel.toggleView }, buttonText: strings.customer2View.customer2ViewModel.gotoSigninLabel"></a>
             </div>
 
             <span class="status" data-bind="text: customer2ViewModel.errorMessage"></span>
@@ -63,6 +63,14 @@
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
 
     <!-- END_CUSTOM_CODE_customer2ViewModel -->
+    <header data-role="header">
+        <div data-role="navbar" class="header-text">
+
+            <span data-bind="text: strings.customer2View.title"></span>
+
+        </div>
+    </header>
+
 
     <!-- START_CUSTOM_CODE_customer2View -->
     <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
