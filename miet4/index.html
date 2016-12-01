@@ -14,9 +14,17 @@
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="app.js"></script>
+    <script src="bower_components/everlive/min/everlive.all.min.js"></script>
+    <script src="dataProviders/miet4.js"></script>
 </head>
 
 <body id="kendoUiMobileApp">
+    <script src="components/reklamation2View/index.js"></script>
+    <script src="components/aboutView/index.js"></script>
+    <script src="components/teamDetailView/index.js"></script>
+    <script src="components/requestView/index.js"></script>
+    <script src="components/reklamationView/index.js"></script>
+    <script src="components/customer2View/index.js"></script>
     <script src="components/home/index.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
@@ -27,9 +35,15 @@
         <footer data-role="footer">
             <div data-role="tabstrip" id="navigation-container">
                 <a href="components/home/view.html" data-icon="home">Home View</a>
+
+                <a href="components/reklamationView/view.html" data-icon="bookmarks">Reklamation</a>
+                <a href="components/requestView/view.html" data-icon="bookmarks">Request</a>
+                <a href="components/teamDetailView/view.html" data-icon="organize">Team</a>
+
+                <a href="#navigation-show-more-view" data-more="true" data-icon="more">More</a>
             </div>
             <div id="navigation-container-more" style="display: none">
-            </div>
+                <a href="components/aboutView/view.html" data-icon="info">&#xDC;ber Uns</a><a href="components/customer2View/view.html?logout=true" data-position="end" data-icon="action">Sign Out</a><a href="components/reklamation2View/view.html" data-icon="bookmarks">Reklamation Form</a></div>
         </footer>
     </div>
 
