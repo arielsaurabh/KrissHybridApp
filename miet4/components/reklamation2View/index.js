@@ -71,7 +71,7 @@ function onPhotoDataSuccess(imageData) {
 
     // Get image handle
     //
-    var smallImage = document.getElementById('smallImage');
+    var smallImage = document.getElementById('largeImage');
 
     // Unhide image elements
     //
@@ -152,5 +152,12 @@ function getPhoto(source) {
 // 
 function onFail(message) {
     alert('Failed because: ' + message);
+}
+function sendMessage(){
+    debugger;
+    var message = document.getElementById("txtReklamationMessage").value;
+    localStorage.removeItem('ReklamationMessage');
+         localStorage.setItem("ReklamationMessage", message);
+         app.mobileApp.navigate('components/requestView/view.html');
 }
 // END_CUSTOM_CODE_reklamation2ViewModel

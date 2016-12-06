@@ -205,11 +205,14 @@ function onFail(message) {
 }
 
 function mailImages(){
+    var ReklamationMessage = localStorage.getItem('ReklamationMessage')
+    localStorage.removeItem('ReklamationMessage');
+    var DamagedMessage = document.getElementById("damagedMessage").value;
     var barcodelink = localStorage.getItem('BarCodeUri');
     var email = 'kris.sistrunk@gmail.com'; // please insert the customer email address
-    var subject = 'Test Emails Images';
+    var subject = 'Kunde Reklamation';
     //var emailBody = 'sdfsdff';
-    var emailBody = 'Barcode Link: '+ barcodelink + ' Image1 = '+ image1 +' Image2 = '+image2 + ' image3 = '+ image3 + ' And image4 = ' + image4;
+    var emailBody = 'Reklamation Comment: ' +ReklamationMessage + '%0D%0A'+'%0D%0A'+  'Barcode Link: '+ barcodelink + '%0D%0A'+'%0D%0A'+  'Damaged Comment: '+DamagedMessage +  '%0D%0A'+'%0D%0A'+ ' Image1 = '+ image1 + '%0D%0A'+'%0D%0A'+ ' Image2 = '+image2 + '%0D%0A'+'%0D%0A'+ ' image3 = '+ image3 + '%0D%0A'+'%0D%0A' + 'and image4 = ' + image4;
     window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody;
 
 };
