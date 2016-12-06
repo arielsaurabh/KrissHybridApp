@@ -28,6 +28,8 @@ app.localization.registerView('reklamation2View');
     parent.set('onShow', function _onShow() {
         var that = parent;
         that.set('addFormData', {
+            lname: '',
+            fName: '',
             rekNotes: '',
             /// start add form data init
             /// end add form data init
@@ -48,8 +50,22 @@ function onDeviceReady() {
     pictureSource = navigator.camera.PictureSourceType;
     destinationType = navigator.camera.DestinationType;
 }
+var el = new Everlive('6e19r6m447rk5yqq'); // App id Of telerik backend
+var BarCodeUri = ""; //Will store live link of barcode in this variable
 
 function onPhotoDataSuccess(imageData) {
+ var file = {
+        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
+        ContentType: "image/jpeg",
+        base64: imageData,
+    };
+    el.Files.create(file, function(response) {
+         BarCodeUri = response.result.Uri;
+         localStorage.removeItem('BarCodeUri');
+         localStorage.setItem("BarCodeUri", BarCodeUri);
+    }, function(err) {
+        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
+    });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -70,6 +86,19 @@ function onPhotoDataSuccess(imageData) {
 // Called when a photo is successfully retrieved
 //
 function onPhotoURISuccess(imageURI) {
+    var file = {
+        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
+        ContentType: "image/jpeg",
+        base64: imageURI,
+    };
+    el.Files.create(file, function(response) {
+        debugger;
+        localStorage.removeItem('BarCodeUri');
+         BarCodeUri = response.result.Uri;
+         localStorage.setItem("BarCodeUri", BarCodeUri);
+    }, function(err) {
+        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
+    });
     // Uncomment to view the image file URI 
     // console.log(imageURI);
 

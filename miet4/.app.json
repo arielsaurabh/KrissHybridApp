@@ -11,64 +11,57 @@
     },
     {
       "type": "kendo-ui-mobile:view",
-      "name": "customer2View",
-      "components": [
-        {
-          "type": "kendo-ui-mobile:authentication",
-          "name": "customer2ViewModel",
-          "dataProvider": "miet4",
-          "enableRegistration": true,
-          "gotoRegisterLabel": "Register",
-          "registerEmailLabel": "Email",
-          "registerPasswordLabel": "Password",
-          "registerNameLabel": "Name",
-          "registerLabel": "Register",
-          "registerRedirect": "home",
-          "gotoSigninLabel": "Sign In",
-          "enableLogout": true,
-          "logoutLabel": "Sign Out",
-          "enableRememberme": true,
-          "remembermeLabel": "Remember Me",
-          "emailLabel": "Email",
-          "passwordLabel": "Password",
-          "signinLabel": "Sign In",
-          "signinRedirect": "home"
-        }
-      ],
-      "title": "Kunde",
-      "addToNavigation": false
-    },
-    {
-      "type": "kendo-ui-mobile:view",
-      "name": "reklamationView",
+      "name": "reklamation2View",
       "components": [
         {
           "type": "kendo-ui-mobile:form",
-          "components": [],
-          "name": "reklamationViewModel",
+          "components": [
+            {
+              "type": "kendo-ui-mobile:editableListForm",
+              "components": [
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "rekNotes",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Reklamation Notes",
+                  "inputType": "textArea",
+                  "wideFieldTitlePosition": "top"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "fName",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "First Name",
+                  "inputType": "text",
+                  "titlePosition": "left",
+                  "inputTextType": "text",
+                  "placeholder": "Type First Name Here..."
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "lname",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Last Name",
+                  "inputType": "text",
+                  "titlePosition": "left",
+                  "inputTextType": "text",
+                  "placeholder": "Type your last name here ..."
+                }
+              ],
+              "name": "editableListForm1",
+              "formType": "add"
+            }
+          ],
+          "name": "reklamation2ViewModel",
           "enableDataBinding": false,
           "submitButton": "Confirm",
           "cancelButton": "Cancel"
         }
       ],
-      "title": "Reklamation",
-      "addToNavigation": true,
-      "icon": "bookmarks"
-    },
-    {
-      "type": "kendo-ui-mobile:view",
-      "name": "requestView",
-      "components": [
-        {
-          "type": "kendo-ui-mobile:form",
-          "components": [],
-          "name": "requestViewModel",
-          "enableDataBinding": false,
-          "submitButton": "Confirm",
-          "cancelButton": "Cancel"
-        }
-      ],
-      "title": "Request",
+      "title": "Reklamation Form",
       "addToNavigation": true,
       "icon": "bookmarks"
     },
@@ -82,15 +75,50 @@
           "detailExtraFields": [],
           "addScreenExtraFields": [],
           "editScreenExtraFields": [],
-          "components": [],
+          "components": [
+            {
+              "type": "kendo-ui-mobile:editableListForm",
+              "components": [
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "openingHours",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Heading",
+                  "inputType": "heading",
+                  "headingSize": "h2",
+                  "value": "When we are open"
+                }
+              ],
+              "name": "editableListForm3",
+              "formType": "detail"
+            },
+            {
+              "type": "kendo-ui-mobile:editableListForm",
+              "components": [
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "salesSupport",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Heading",
+                  "inputType": "heading",
+                  "headingSize": "h1",
+                  "value": "Please call or email us for Sales Support."
+                }
+              ],
+              "name": "editableListForm4",
+              "formType": "list"
+            }
+          ],
           "name": "teamDetailViewModel",
           "dataProvider": "miet4",
           "collection": "Users",
           "headerField": "DisplayName",
+          "iconField": false,
           "addItemForm": false,
           "editItemForm": false,
           "deleteItemButton": false,
-          "deleteItemConfirmation": true,
           "pullToRefresh": false,
           "endlessScroll": false,
           "isMapView": false,
@@ -131,7 +159,7 @@
     },
     {
       "type": "kendo-ui-mobile:view",
-      "name": "reklamation2View",
+      "name": "requestView",
       "components": [
         {
           "type": "kendo-ui-mobile:form",
@@ -141,29 +169,28 @@
               "components": [
                 {
                   "type": "kendo-ui-mobile:editableListFormField",
-                  "name": "rekNotes",
+                  "name": "damageNote",
                   "dataBindingRelationChildren": "[]",
                   "dataBindingMultipleSelectChildren": "[]",
-                  "title": "Reklamation Notes",
+                  "title": "Visual Damage Notes",
                   "inputType": "textArea",
-                  "titlePosition": "left",
                   "wideFieldTitlePosition": "top",
-                  "inputTextType": "text"
+                  "dataBinding": "DisplayName"
                 }
               ],
-              "name": "editableListForm1",
+              "name": "editableListForm5",
               "formType": "add"
             }
           ],
-          "name": "reklamation2ViewModel",
-          "enableDataBinding": false,
-          "submitButton": "Confirm",
-          "cancelButton": "Cancel"
+          "name": "requestViewModel",
+          "enableDataBinding": true,
+          "dataProvider": "backEndStorage",
+          "collection": "Users",
+          "submitButton": "Send To Company"
         }
       ],
-      "title": "Reklamation Form",
-      "addToNavigation": true,
-      "icon": "bookmarks"
+      "title": "Damage Request",
+      "addToNavigation": false
     }
   ],
   "dataProviders": [
@@ -174,13 +201,21 @@
       "everliveKey": "6e19r6m447rk5yqq",
       "offlineStorage": true,
       "title": "miet4 / miet4"
+    },
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "backEndStorage",
+      "source": "everlive",
+      "everliveKey": "6e19r6m447rk5yqq",
+      "offlineStorage": true,
+      "title": "miet4 / miet4"
     }
   ],
   "name": "kendoUiMobileApp",
   "navigation": "tabstrip",
   "view": "home",
   "transition": "slide",
-  "showMoreTab": true,
+  "showMoreTab": false,
   "skin": "nova",
   "skinMainColor": "#32364c",
   "skinTextColor": "#ffffff",

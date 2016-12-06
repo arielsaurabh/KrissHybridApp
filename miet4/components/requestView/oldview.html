@@ -1,0 +1,37 @@
+<div data-role="view" data-title="View" data-layout="main-nonav" data-model="app.requestView" data-show="app.requestView.onShow" data-after-show="app.requestView.afterShow" id="requestViewScreen" class="screen">
+    <div id="requestViewModel" class="form-view screen__content screen__content--form add-item-view">
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">
+                <li class="form-content-item">
+                    <label id="damageNoteField" class="km-label-above field field--textarea">
+
+                        <span class="field__label" style="margin-left:25%; font-size:16px; text-align:center;" data-bind="text: strings.requestView.requestViewModel.editableListForm5.damageNote.title"></span>
+
+                        <textarea rows="7" data-bind="value: addFormData.damageNote"></textarea>
+                    </label>
+                </li>
+            </ul>
+
+            <div class="button-group">
+                <a class="primary" data-role="button" data-bind="events: { click: requestViewModel.submit }, buttonText: strings.requestView.requestViewModel.submitButton"></a>
+            </div>
+        </form>
+        <!-- START_CUSTOM_CODE_requestViewModel -->
+        <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+        <!-- END_CUSTOM_CODE_requestViewModel -->
+    </div>
+    <header data-role="header">
+        <div data-role="navbar" class="header-text">
+
+            <span data-bind="text: strings.requestView.title"></span>
+
+        </div>
+    </header>
+
+
+    <!-- START_CUSTOM_CODE_requestView -->
+    <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+    <!-- END_CUSTOM_CODE_requestView -->
+</div>

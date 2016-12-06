@@ -1,40 +1,39 @@
 <div data-role="view" data-title="View" data-layout="main" data-model="app.reklamation2View" data-show="app.reklamation2View.onShow" data-after-show="app.reklamation2View.afterShow" id="reklamation2ViewScreen" class="screen">
-    <div id="reklamation2ViewModel" class="form-view screen__content screen__content--form add-item-view">
-        <div> <img src="components/images/smiley.jpg" alt="Smiley face" height="40" width="100%">
+    <div id="reklamation2ViewModel" class="form-view screen__content screen__content--form add-item-view" >
+        <div> 
+            <img src="components/images/smiley.jpg" alt="Smiley face" height="40" width="100%">
     </div>
-        <form>
-            <ul class="form-content" data-role="listview" data-style="inset">
-                <li class="form-content-item">
-                <div class="row">
+    <div>
+        <input type="text" placeholder="Please Enter First Name" style="width: 40%;height: 30px; margin-left:8%;">
+        <input type="text" placeholder="Please Enter Last Name" style="width: 40%;height: 30px; margin-left:4%;">
+        </div>
+	
+     <div class="row">
                     <div class="button-group">
                 <a data-role="button" onclick="capturePhoto();" >Capture Photo</a>
                 <a class="primary" data-role="button" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Photo Library</a>
             </div>
-        <!--<button onclick="capturePhoto();">Capture Photo</button>-->
-        
-        <!--<button onclick="capturePhotoEdit();">Capture Editable Photo</button>
-        <br> -->
-        <!--<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button>
-        <br>-->
-        <!--<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button>
-        <br>-->
-        <img style="display:none;width:60px;height:60px;" id="smallImage" src="">
-        <img style="display:none; width:60%; margin-left:20%" id="largeImage" src="" >
-    </div>
+        <img style="display:none; width:50%; margin-left:25%; height:200px;" id="smallImage" src="">
+        <img style="display:none; width:50%; margin-left:25%; height:200px;" id="largeImage" src="" >
+		</div>
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">
+                <li class="form-content-item">
+                    
     </li>
                 <li class="form-content-item">
                     <label id="rekNotesField" class="km-label-above field field--textarea">
 
-                        <span class="field__label" data-bind="text: strings.reklamation2View.reklamation2ViewModel.editableListForm1.rekNotes.title"></span>
+                        <span class="field__label" style="margin-left:25%; font-size:16px; text-align:center;" data-bind="text: strings.reklamation2View.reklamation2ViewModel.editableListForm1.rekNotes.title"></span>
 
-                        <textarea rows="7"></textarea>
+                        <textarea rows="3"></textarea>
                     </label>
                 </li>
             </ul>
 
             <div class="button-group">
                 <a data-role="button" data-bind="events: { click: reklamation2ViewModel.cancel }, buttonText: strings.reklamation2View.reklamation2ViewModel.cancelButton"></a>
-                <a class="primary" data-role="button" data-bind="events: { click: reklamation2ViewModel.submit }, buttonText: strings.reklamation2View.reklamation2ViewModel.submitButton"></a>
+                <a class="primary" data-role="button" data-bind="events: { click: reklamation2ViewModel.submit }, buttonText: strings.reklamation2View.reklamation2ViewModel.submitButton" onclick="app.mobileApp.navigate('components/requestView/view.html');"></a>
             </div>
         </form>
         <!-- START_CUSTOM_CODE_reklamation2ViewModel -->

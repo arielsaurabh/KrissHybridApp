@@ -12,9 +12,6 @@
         },
         navigation: {
             viewModel: kendo.observable()
-        },
-        showMore: {
-            viewModel: kendo.observable()
         }
     };
 
@@ -32,25 +29,9 @@
 
     $(document).ready(function() {
 
-        var navigationShowMoreView = $('#navigation-show-more-view').find('ul'),
-            allItems = $('#navigation-container-more').find('a'),
-            navigationShowMoreContent = '';
-
-        allItems.each(function(index) {
-            navigationShowMoreContent += '<li>' + allItems[index].outerHTML + '</li>';
-        });
-
-        navigationShowMoreView.html(navigationShowMoreContent);
-        kendo.bind($('#navigation-show-more-view'), app.showMore.viewModel);
-
         app.notification = $("#notify");
 
     });
-
-    app.listViewClick = function _listViewClick(item) {
-        var tabstrip = app.mobileApp.view().footer.find('.km-tabstrip').data('kendoMobileTabStrip');
-        tabstrip.clear();
-    };
 
     app.showNotification = function(message, time) {
         var autoHideAfter = time ? time : 3000;
@@ -176,7 +157,6 @@
                 }
 
                 app.navigation.viewModel.set('strings', strings);
-                app.showMore.viewModel.set('strings', strings);
             }
         },
         loadCulture = function(code) {

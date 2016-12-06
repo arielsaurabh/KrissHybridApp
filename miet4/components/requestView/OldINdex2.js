@@ -47,24 +47,8 @@ function onDeviceReady() {
     pictureSource = navigator.camera.PictureSourceType;
     destinationType = navigator.camera.DestinationType;
 }
-var el = new Everlive('6e19r6m447rk5yqq');
-var image1 ="";
-var image2 ="";
-var image3 ="";
-var image4 ="";
+
 function onPhotoDataSuccess1(imageData) {
-    debugger;
-    var data = el.data('DamagedData');
-    var file = {
-        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
-        ContentType: "image/jpeg",
-        base64: imageData,
-    };
-    el.Files.create(file, function(response) {
-         image1 = response.result.Uri;
-    }, function(err) {
-        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
-    });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -82,17 +66,6 @@ function onPhotoDataSuccess1(imageData) {
     smallImage1.src = "data:image/jpeg;base64," + imageData;
 }
 function onPhotoDataSuccess2(imageData) {
-    var data = el.data('DamagedData');
-    var file = {
-        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
-        ContentType: "image/jpeg",
-        base64: imageData,
-    };
-    el.Files.create(file, function(response) {
-        image2 = response.result.Uri;
-    }, function(err) {
-        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
-    });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -110,17 +83,6 @@ function onPhotoDataSuccess2(imageData) {
     smallImage2.src = "data:image/jpeg;base64," + imageData;
 }
 function onPhotoDataSuccess3(imageData) {
-    var data = el.data('DamagedData');
-    var file = {
-        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
-        ContentType: "image/jpeg",
-        base64: imageData,
-    };
-    el.Files.create(file, function(response) {
-        image3 = response.result.Uri;
-    }, function(err) {
-        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
-    });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -138,17 +100,6 @@ function onPhotoDataSuccess3(imageData) {
     smallImage3.src = "data:image/jpeg;base64," + imageData;
 }
 function onPhotoDataSuccess4(imageData) {
-    var data = el.data('DamagedData');
-    var file = {
-        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
-        ContentType: "image/jpeg",
-        base64: imageData,
-    };
-    el.Files.create(file, function(response) {
-        image4 = response.result.Uri;
-    }, function(err) {
-        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
-    });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -166,7 +117,25 @@ function onPhotoDataSuccess4(imageData) {
     smallImage4.src = "data:image/jpeg;base64," + imageData;
 }
 
+// // Called when a photo is successfully retrieved
+// //
+// function onPhotoURISuccess(imageURI) {
+//     // Uncomment to view the image file URI 
+//     // console.log(imageURI);
 
+//     // Get image handle
+//     //
+//     var largeImage = document.getElementById('largeImage');
+
+//     // Unhide image elements
+//     //
+//     largeImage.style.display = 'block';
+
+//     // Show the captured photo
+//     // The inline CSS rules are used to resize the image
+//     //
+//     largeImage.src = imageURI;
+// }
 
 // A button will call this function
 //
@@ -199,18 +168,31 @@ function capturePhoto4() {
     });
 }
 
+// A button will call this function
+//
+// function capturePhotoEdit() {
+//     // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
+//     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
+//         quality: 20,
+//         allowEdit: true,
+//         destinationType: destinationType.DATA_URL
+//     });
+// }
 
+// // A button will call this function
+// //
+// function getPhoto(source) {
+//     // Retrieve image file location from specified source
+//     navigator.camera.getPicture(onPhotoURISuccess, onFail, {
+//         quality: 50,
+//         destinationType: destinationType.FILE_URI,
+//         sourceType: source
+//     });
+// }
+
+// Called if something bad happens.
+// 
 function onFail(message) {
     alert('Failed because: ' + message);
 }
-
-function mailImages(){
-    var barcodelink = localStorage.getItem('BarCodeUri');
-    var email = 'kris.sistrunk@gmail.com'; // please insert the customer email address
-    var subject = 'Test Emails Images';
-    //var emailBody = 'sdfsdff';
-    var emailBody = 'Barcode Link: '+ barcodelink + ' Image1 = '+ image1 +' Image2 = '+image2 + ' image3 = '+ image3 + ' And image4 = ' + image4;
-    window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody;
-
-};
 // END_CUSTOM_CODE_requestViewModel

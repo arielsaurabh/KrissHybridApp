@@ -7,40 +7,40 @@
   "home": {
     "title": "Home View"
   },
-  "customer2View": {
-    "title": "Kunde",
-    "customer2ViewModel": {
-      "logoutLabel": "Sign Out",
-      "emailLabel": "Email",
-      "passwordLabel": "Password",
-      "signinLabel": "Sign In",
-      "gotoRegisterLabel": "Register",
-      "remembermeLabel": "Remember Me",
-      "registerEmailLabel": "Email",
-      "registerPasswordLabel": "Password",
-      "registerNameLabel": "Name",
-      "registerLabel": "Register",
-      "gotoSigninLabel": "Sign In"
-    }
-  },
-  "reklamationView": {
-    "title": "Reklamation",
-    "reklamationViewModel": {
+  "reklamation2View": {
+    "title": "Reklamation Form",
+    "reklamation2ViewModel": {
       "submitButton": "Confirm",
-      "cancelButton": "Cancel"
-    }
-  },
-  "requestView": {
-    "title": "Request",
-    "requestViewModel": {
-      "submitButton": "Confirm",
-      "cancelButton": "Cancel"
+      "cancelButton": "Cancel",
+      "editableListForm1": {
+        "rekNotes": {
+          "title": "Reklamation Notes"
+        },
+        "fName": {
+          "title": "First Name",
+          "placeholder": "Type First Name Here..."
+        },
+        "lname": {
+          "title": "Last Name",
+          "placeholder": "Type your last name here ..."
+        }
+      }
     }
   },
   "teamDetailView": {
     "title": "Team",
     "teamDetailViewModel": {
-      "detailHeaderFieldValue": "Detail"
+      "detailHeaderFieldValue": "Detail",
+      "editableListForm3": {
+        "openingHours": {
+          "title": "Heading"
+        }
+      },
+      "editableListForm4": {
+        "salesSupport": {
+          "title": "Heading"
+        }
+      }
     }
   },
   "aboutView": {
@@ -54,14 +54,13 @@
       "twitterLabel": "Follow us on Twitter"
     }
   },
-  "reklamation2View": {
-    "title": "Reklamation Form",
-    "reklamation2ViewModel": {
-      "submitButton": "Confirm",
-      "cancelButton": "Cancel",
-      "editableListForm1": {
-        "rekNotes": {
-          "title": "Reklamation Notes"
+  "requestView": {
+    "title": "Damage Request",
+    "requestViewModel": {
+      "submitButton": "Send To Company",
+      "editableListForm5": {
+        "damageNote": {
+          "title": "Visual Damage Notes"
         }
       }
     }
