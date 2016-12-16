@@ -50,6 +50,41 @@ function onDeviceReady() {
     pictureSource = navigator.camera.PictureSourceType;
     destinationType = navigator.camera.DestinationType;
 }
+function barcodeScan(){
+    debugger;
+    if (window.navigator.simulator === true) {
+            alert("Not Supported in Simulator.");
+        }
+        else {
+  cordova.plugins.barcodeScanner.scan(
+
+    // success callback function
+    function (result) {
+        // wrapping in a timeout so the dialog doesn't free the app
+        setTimeout(function() {
+            alert("We got a barcode\n" +
+                  "Result: " + result.text + "\n" +
+                  "Format: " + result.format + "\n" +
+                  "Cancelled: " + result.cancelled);
+                  $("#result").append('<div class="row"><div class="col u-text-right"><label class="u-text-bold">' + result.format + '</label></div><div class="col u-text-left"><span class="u-color-accent">' + result.text + '</span></div></div>');
+
+        }, 0);
+    },
+
+    // error callback function
+    function (error) {
+        alert("Scanning failed: " + error);
+    },
+
+    // options object
+    {
+        "preferFrontCamera" : false,
+        "showFlipCameraButton" : true,
+        "showTorchButton" : true,
+        "orientation" : "landscape"
+    })
+        }
+}
 var el = new Everlive('6e19r6m447rk5yqq'); // App id Of telerik backend
 var BarCodeUri = ""; //Will store live link of barcode in this variable
 
@@ -58,6 +93,9 @@ function onPhotoDataSuccess(imageData) {
         Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
         ContentType: "image/jpeg",
         base64: imageData,
+        quality: 50,
+        targetWidth: 400,
+        targetHeight: 300
     };
     el.Files.create(file, function(response) {
          BarCodeUri = response.result.Uri;
@@ -90,6 +128,9 @@ function onPhotoURISuccess(imageURI) {
         Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
         ContentType: "image/jpeg",
         base64: imageURI,
+        quality: 50,
+        targetWidth: 400,
+        targetHeight: 300
     };
     el.Files.create(file, function(response) {
         debugger;
@@ -122,7 +163,9 @@ function capturePhoto() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 50,
-        destinationType: destinationType.DATA_URL
+        destinationType: destinationType.DATA_URL,
+        targetWidth: 400,
+        targetHeight: 300
     });
 }
 
@@ -154,9 +197,14 @@ function onFail(message) {
     alert('Failed because: ' + message);
 }
 function sendMessage(){
-    debugger;
+localStorage.removeItem('ReklamationMessage');
+localStorage.removeItem('FirstName');
+localStorage.removeItem('LastName');
+    var FirstName = document.getElementById("FirstName").value;
+    var LastName = document.getElementById("LastName").value;
     var message = document.getElementById("txtReklamationMessage").value;
-    localStorage.removeItem('ReklamationMessage');
+    localStorage.setItem("FirstName", FirstName);
+    localStorage.setItem("LastName", LastName);
          localStorage.setItem("ReklamationMessage", message);
          app.mobileApp.navigate('components/requestView/view.html');
 }

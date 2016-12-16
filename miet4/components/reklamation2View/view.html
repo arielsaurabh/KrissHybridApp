@@ -4,29 +4,32 @@
             <img src="components/images/smiley.jpg" alt="Smiley face" height="40" width="100%">
     </div>
     <div>
-        <input type="text" placeholder="Please Enter First Name" style="width: 40%;height: 30px; margin-left:8%;">
-        <input type="text" placeholder="Please Enter Last Name" style="width: 40%;height: 30px; margin-left:4%;">
+        <input type="text" id="FirstName" placeholder="Please Enter First Name" style="margin-left:5%; width: 40%;height: 30px; border-width:medium;">
+        <input type="text" id="LastName" placeholder="Please Enter Last Name" style="margin-left:5%; width: 40%;height: 30px; border-width:medium;">
         </div>
 	
      <div class="row">
                     <div class="button-group">
-                <a data-role="button" onclick="capturePhoto();" >Capture Photo</a>
+                        <a data-role="button" onclick="barcodeScan();" >Scan</a>
+                <!--<a data-role="button" onclick="capturePhoto();" >Capture Photo</a>-->
                 <!--<a class="primary" data-role="button" onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Photo Library</a>-->
+                
             </div>
         <img style="display:none; width:50%; margin-left:25%; height:200px;" id="smallImage" src="">
         <img style="display:none; width:50%; margin-left:25%; height:200px;" id="largeImage" src="" >
 		</div>
+        <div class="content" id="result"></div>
         <form>
             <ul class="form-content" data-role="listview" data-style="inset">
                 <li class="form-content-item">
                     
     </li>
-                <li class="form-content-item">
+                <li class="form-content-item" style="width:90%;">
                     <label id="rekNotesField" class="km-label-above field field--textarea">
 
                         <span class="field__label" style="margin-left:25%; font-size:16px; text-align:center;" data-bind="text: strings.reklamation2View.reklamation2ViewModel.editableListForm1.rekNotes.title"></span>
 
-                        <textarea rows="3" id="txtReklamationMessage"></textarea>
+                        <textarea rows="3" id="txtReklamationMessage" style="border-width:medium;"></textarea>
                     </label>
                 </li>
             </ul>

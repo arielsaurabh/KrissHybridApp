@@ -59,6 +59,9 @@ function onPhotoDataSuccess1(imageData) {
         Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
         ContentType: "image/jpeg",
         base64: imageData,
+        quality: 50,
+        targetWidth: 400,
+        targetHeight: 300
     };
     el.Files.create(file, function(response) {
          image1 = response.result.Uri;
@@ -87,6 +90,9 @@ function onPhotoDataSuccess2(imageData) {
         Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
         ContentType: "image/jpeg",
         base64: imageData,
+        quality: 50,
+        targetWidth: 400,
+        targetHeight: 300
     };
     el.Files.create(file, function(response) {
         image2 = response.result.Uri;
@@ -115,6 +121,9 @@ function onPhotoDataSuccess3(imageData) {
         Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
         ContentType: "image/jpeg",
         base64: imageData,
+        quality: 50,
+        targetWidth: 400,
+        targetHeight: 300
     };
     el.Files.create(file, function(response) {
         image3 = response.result.Uri;
@@ -143,6 +152,9 @@ function onPhotoDataSuccess4(imageData) {
         Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
         ContentType: "image/jpeg",
         base64: imageData,
+        quality: 50,
+        targetWidth: 400,
+        targetHeight: 300
     };
     el.Files.create(file, function(response) {
         image4 = response.result.Uri;
@@ -174,28 +186,40 @@ function capturePhoto1() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess1, onFail, {
         quality: 50,
-        destinationType: destinationType.DATA_URL
+        destinationType: destinationType.DATA_URL,
+        
+        targetWidth: 400,
+        targetHeight: 300
     });
 }
 function capturePhoto2() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess2, onFail, {
         quality: 50,
-        destinationType: destinationType.DATA_URL
+        destinationType: destinationType.DATA_URL,
+        
+        targetWidth: 400,
+        targetHeight: 300
     });
 }
 function capturePhoto3() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess3, onFail, {
         quality: 50,
-        destinationType: destinationType.DATA_URL
+        destinationType: destinationType.DATA_URL,
+      
+        targetWidth: 400,
+        targetHeight: 300
     });
 }
 function capturePhoto4() {
     // Take picture using device camera and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess4, onFail, {
         quality: 50,
-        destinationType: destinationType.DATA_URL
+        destinationType: destinationType.DATA_URL,
+     
+        targetWidth: 400,
+        targetHeight: 300
     });
 }
 
@@ -205,15 +229,44 @@ function onFail(message) {
 }
 
 function mailImages(){
+ var FirstName = localStorage.getItem('FirstName');
+    var LastName = localStorage.getItem('LastName');
     var ReklamationMessage = localStorage.getItem('ReklamationMessage')
     localStorage.removeItem('ReklamationMessage');
+ localStorage.removeItem('FirstName');
+    localStorage.removeItem('LastName');
     var DamagedMessage = document.getElementById("damagedMessage").value;
     var barcodelink = localStorage.getItem('BarCodeUri');
     var email = 'kris.sistrunk@gmail.com'; // please insert the customer email address
     var subject = 'Kunde Reklamation';
     //var emailBody = 'sdfsdff';
-    var emailBody = 'Reklamation Comment: ' +ReklamationMessage + '%0D%0A'+'%0D%0A'+  'Barcode Link: '+ barcodelink + '%0D%0A'+'%0D%0A'+  'Damaged Comment: '+DamagedMessage +  '%0D%0A'+'%0D%0A'+ ' Image1 = '+ image1 + '%0D%0A'+'%0D%0A'+ ' Image2 = '+image2 + '%0D%0A'+'%0D%0A'+ ' image3 = '+ image3 + '%0D%0A'+'%0D%0A' + 'and image4 = ' + image4;
-    window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody;
-
+    var emailBody =  'Firstname: '+FirstName + '%0D%0A'+'%0D%0A'+ 'Lastname: '+LastName + '%0D%0A'+'%0D%0A' + 'Reklamation Comment: ' +ReklamationMessage + '%0D%0A'+'%0D%0A'+  'Barcode Link: ' + barcodelink + '%0D%0A'+'%0D%0A'+  'Damaged Comment: '+DamagedMessage +  '%0D%0A'+'%0D%0A'+ ' Image1 = '+ image1 + '%0D%0A'+'%0D%0A'+ ' Image2 = '+image2 + '%0D%0A'+'%0D%0A'+ ' image3 = '+ image3 + '%0D%0A'+'%0D%0A' + 'and image4 = ' + image4;
+   // window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody;
+   var attributes = {
+    "Recipients": [
+        "sistrunk@helpmespeaklanguages.com"  //sender's email id
+    ],
+    "Context": {
+        
+         "EmailSubject": "Kunde Reklamation",
+    "CustomizedGreeting": "<div><span>First Name: "+FirstName +"</span><br><br><span>Last Name: "+ LastName +"</span><br><br><span>Reklamation Comment: "+ReklamationMessage +"</span><br><br><span>Barcode image: <img src="+"'"+ barcodelink +"'" +"></span><br><br><span>Damaged Comment: "+ DamagedMessage+"</span><br><br><span>Image1: <img src="+"'"+ image1 +"'" +"></span><br><br><span>Image2: <img src="+"'"+ image2 +"'" +"></span><br><br><span>Image3: <img src="+"'"+ image3 +"'" +"></span><br><br><span>Image4: <img src="+"'"+ image4 +"'" +"></span></div>"
+    }
 };
+
+$.ajax({
+    type: "POST",
+    url: 'https://api.everlive.com/v1/Metadata/Applications/6e19r6m447rk5yqq/EmailTemplates/6c343b10-c039-11e6-9816-795b780825ed/send',
+    contentType: "application/json",
+    headers: {
+        "Authorization": "Masterkey gAU2ysIqh3Z7tmVTcfj1Ijk2M8vRqPv8"
+    },
+    data: JSON.stringify(attributes),
+    success: function(data) {
+        alert("Email successfully sent.");
+    },
+    error: function(error) {
+        alert(JSON.stringify(error));
+    }
+})
+ }
 // END_CUSTOM_CODE_requestViewModel
