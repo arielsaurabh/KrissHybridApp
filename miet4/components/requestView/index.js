@@ -54,20 +54,20 @@ var image3 ="";
 var image4 ="";
 function onPhotoDataSuccess1(imageData) {
     debugger;
-    var data = el.data('DamagedData');
-    var file = {
-        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
-        ContentType: "image/jpeg",
-        base64: imageData,
-        quality: 50,
-        targetWidth: 400,
-        targetHeight: 300
-    };
-    el.Files.create(file, function(response) {
-         image1 = response.result.Uri;
-    }, function(err) {
-        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
-    });
+    // var data = el.data('DamagedData');
+    // var file = {
+    //     Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
+    //     ContentType: "image/jpeg",
+    //     base64: imageData,
+    //     quality: 50,
+    //     targetWidth: 400,
+    //     targetHeight: 300
+    // };
+    // el.Files.create(file, function(response) {
+    //      image1 = response.result.Uri;
+    // }, function(err) {
+    //     navigator.notification.alert("Unfortunately the upload failed: " + err.message);
+    // });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -83,22 +83,23 @@ function onPhotoDataSuccess1(imageData) {
     // The inline CSS rules are used to resize the image
     //
     smallImage1.src = "data:image/jpeg;base64," + imageData;
+     image1 =  imageData;
 }
 function onPhotoDataSuccess2(imageData) {
-    var data = el.data('DamagedData');
-    var file = {
-        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
-        ContentType: "image/jpeg",
-        base64: imageData,
-        quality: 50,
-        targetWidth: 400,
-        targetHeight: 300
-    };
-    el.Files.create(file, function(response) {
-        image2 = response.result.Uri;
-    }, function(err) {
-        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
-    });
+    // var data = el.data('DamagedData');
+    // var file = {
+    //     Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
+    //     ContentType: "image/jpeg",
+    //     base64: imageData,
+    //     quality: 50,
+    //     targetWidth: 400,
+    //     targetHeight: 300
+    // };
+    // el.Files.create(file, function(response) {
+    //     image2 = response.result.Uri;
+    // }, function(err) {
+    //     navigator.notification.alert("Unfortunately the upload failed: " + err.message);
+    // });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -114,22 +115,23 @@ function onPhotoDataSuccess2(imageData) {
     // The inline CSS rules are used to resize the image
     //
     smallImage2.src = "data:image/jpeg;base64," + imageData;
+    image2 =  imageData;
 }
 function onPhotoDataSuccess3(imageData) {
-    var data = el.data('DamagedData');
-    var file = {
-        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
-        ContentType: "image/jpeg",
-        base64: imageData,
-        quality: 50,
-        targetWidth: 400,
-        targetHeight: 300
-    };
-    el.Files.create(file, function(response) {
-        image3 = response.result.Uri;
-    }, function(err) {
-        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
-    });
+    // var data = el.data('DamagedData');
+    // var file = {
+    //     Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
+    //     ContentType: "image/jpeg",
+    //     base64: imageData,
+    //     quality: 50,
+    //     targetWidth: 400,
+    //     targetHeight: 300
+    // };
+    // el.Files.create(file, function(response) {
+    //     image3 = response.result.Uri;
+    // }, function(err) {
+    //     navigator.notification.alert("Unfortunately the upload failed: " + err.message);
+    // });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -145,22 +147,23 @@ function onPhotoDataSuccess3(imageData) {
     // The inline CSS rules are used to resize the image
     //
     smallImage3.src = "data:image/jpeg;base64," + imageData;
+    image3 =  imageData;
 }
 function onPhotoDataSuccess4(imageData) {
-    var data = el.data('DamagedData');
-    var file = {
-        Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
-        ContentType: "image/jpeg",
-        base64: imageData,
-        quality: 50,
-        targetWidth: 400,
-        targetHeight: 300
-    };
-    el.Files.create(file, function(response) {
-        image4 = response.result.Uri;
-    }, function(err) {
-        navigator.notification.alert("Unfortunately the upload failed: " + err.message);
-    });
+    // var data = el.data('DamagedData');
+    // var file = {
+    //     Filename: Math.random().toString(36).substring(2, 15) + ".jpg",
+    //     ContentType: "image/jpeg",
+    //     base64: imageData,
+    //     quality: 50,
+    //     targetWidth: 400,
+    //     targetHeight: 300
+    // };
+    // el.Files.create(file, function(response) {
+    //     image4 = response.result.Uri;
+    // }, function(err) {
+    //     navigator.notification.alert("Unfortunately the upload failed: " + err.message);
+    // });
     // Uncomment to view the base64 encoded image data
     // console.log(imageData);
 
@@ -176,6 +179,7 @@ function onPhotoDataSuccess4(imageData) {
     // The inline CSS rules are used to resize the image
     //
     smallImage4.src = "data:image/jpeg;base64," + imageData;
+    image4 =  imageData;
 }
 
 
@@ -232,6 +236,8 @@ function mailImages(){
  var FirstName = localStorage.getItem('FirstName');
     var LastName = localStorage.getItem('LastName');
     var ReklamationMessage = localStorage.getItem('ReklamationMessage')
+     var BarcodeResult = localStorage.getItem('BarcodeResult');
+    localStorage.removeItem('BarcodeResult');
     localStorage.removeItem('ReklamationMessage');
  localStorage.removeItem('FirstName');
     localStorage.removeItem('LastName');
@@ -241,32 +247,49 @@ function mailImages(){
     var subject = 'Kunde Reklamation';
     //var emailBody = 'sdfsdff';
     var emailBody =  'Firstname: '+FirstName + '%0D%0A'+'%0D%0A'+ 'Lastname: '+LastName + '%0D%0A'+'%0D%0A' + 'Reklamation Comment: ' +ReklamationMessage + '%0D%0A'+'%0D%0A'+  'Barcode Link: ' + barcodelink + '%0D%0A'+'%0D%0A'+  'Damaged Comment: '+DamagedMessage +  '%0D%0A'+'%0D%0A'+ ' Image1 = '+ image1 + '%0D%0A'+'%0D%0A'+ ' Image2 = '+image2 + '%0D%0A'+'%0D%0A'+ ' image3 = '+ image3 + '%0D%0A'+'%0D%0A' + 'and image4 = ' + image4;
+if (window.navigator.simulator === true) {
+                alert('This plugin is not available in the simulator.');
+                return true;
+            } else if (window.cordova === undefined || window.cordova.plugins === undefined) {
+                alert('Plugin not found. Maybe you are running in AppBuilder Companion app which currently does not support this plugin.');
+                return true;
+            } else {
+                cordova.plugins.email.open({
+                    to:          ['sistrunk@helpmespeaklanguages.com'], 
+                    // cc:          ['person2@domain.com'],
+                    // bcc:         ['person3@domain.com', 'person4@domain.com'],
+                    attachments: ['base64:image1.jpg//'+image1, 'base64:image2.jpg//'+image2,'base64:image3.jpg//'+image3,'base64:image4.jpg//'+image4],
+                    subject:     'Kunde Reklamation',
+                    body:        "<h2>Hello!</h2><div><span>First Name: "+FirstName +"</span><br><br><span>Last Name: "+ LastName +"</span><br><br><span>Reklamation Comment: "+ReklamationMessage +"</span><br><br><span>Barcode Result: "+ BarcodeResult +"</span><br><br><span>Damaged Comment: "+                           DamagedMessage+"</span><br><br>",
+                    isHtml:      true
+                })
+            }
    // window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody;
-   var attributes = {
-    "Recipients": [
-        "sistrunk@helpmespeaklanguages.com"  //sender's email id
-    ],
-    "Context": {
+//    var attributes = {
+//     "Recipients": [
+//         "sistrunk@helpmespeaklanguages.com"  //sender's email id
+//     ],
+//     "Context": {
         
-         "EmailSubject": "Kunde Reklamation",
-    "CustomizedGreeting": "<div><span>First Name: "+FirstName +"</span><br><br><span>Last Name: "+ LastName +"</span><br><br><span>Reklamation Comment: "+ReklamationMessage +"</span><br><br><span>Barcode image: <img src="+"'"+ barcodelink +"'" +"></span><br><br><span>Damaged Comment: "+ DamagedMessage+"</span><br><br><span>Image1: <img src="+"'"+ image1 +"'" +"></span><br><br><span>Image2: <img src="+"'"+ image2 +"'" +"></span><br><br><span>Image3: <img src="+"'"+ image3 +"'" +"></span><br><br><span>Image4: <img src="+"'"+ image4 +"'" +"></span></div>"
-    }
-};
+//          "EmailSubject": "Kunde Reklamation",
+//     "CustomizedGreeting": "<div><span>First Name: "+FirstName +"</span><br><br><span>Last Name: "+ LastName +"</span><br><br><span>Reklamation Comment: "+ReklamationMessage +"</span><br><br><span>Barcode Result: "+ BarcodeResult +"</span><br><br><span>Damaged Comment: "+ DamagedMessage+"</span><br><br><span>Image1: <img src="+"'"+ image1 +"'" +"></span><br><br><span>Image2: <img src="+"'"+ image2 +"'" +"></span><br><br><span>Image3: <img src="+"'"+ image3 +"'" +"></span><br><br><span>Image4: <img src="+"'"+ image4 +"'" +"></span></div>"
+//     }
+// };
 
-$.ajax({
-    type: "POST",
-    url: 'https://api.everlive.com/v1/Metadata/Applications/6e19r6m447rk5yqq/EmailTemplates/6c343b10-c039-11e6-9816-795b780825ed/send',
-    contentType: "application/json",
-    headers: {
-        "Authorization": "Masterkey gAU2ysIqh3Z7tmVTcfj1Ijk2M8vRqPv8"
-    },
-    data: JSON.stringify(attributes),
-    success: function(data) {
-        alert("Email successfully sent.");
-    },
-    error: function(error) {
-        alert(JSON.stringify(error));
-    }
-})
+// $.ajax({
+//     type: "POST",
+//     url: 'https://api.everlive.com/v1/Metadata/Applications/6e19r6m447rk5yqq/EmailTemplates/6c343b10-c039-11e6-9816-795b780825ed/send',
+//     contentType: "application/json",
+//     headers: {
+//         "Authorization": "Masterkey gAU2ysIqh3Z7tmVTcfj1Ijk2M8vRqPv8"
+//     },
+//     data: JSON.stringify(attributes),
+//     success: function(data) {
+//         alert("Email successfully sent.");
+//     },
+//     error: function(error) {
+//         alert(JSON.stringify(error));
+//     }
+// })
  }
 // END_CUSTOM_CODE_requestViewModel

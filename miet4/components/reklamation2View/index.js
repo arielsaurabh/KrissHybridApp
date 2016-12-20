@@ -67,7 +67,8 @@ function barcodeScan(){
                   "Format: " + result.format + "\n" +
                   "Cancelled: " + result.cancelled);
                   $("#result").append('<div class="row"><div class="col u-text-right"><label class="u-text-bold">' + result.format + '</label></div><div class="col u-text-left"><span class="u-color-accent">' + result.text + '</span></div></div>');
-
+localStorage.removeItem('BarcodeResult');
+                localStorage.setItem("BarcodeResult","The barcode format is: "+ result.format +" and the text is: "+ result.text);
         }, 0);
     },
 
