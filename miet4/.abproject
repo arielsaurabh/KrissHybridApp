@@ -43,7 +43,7 @@
     "ID_RESOLUTION_HD720P"
   ],
   "CorePlugins": [
-    "com.phonegap.plugins.barcodescanner@6.0.4",
+    "com.phonegap.plugins.barcodescanner@6.0.5",
     "cordova-plugin-battery-status",
     "cordova-plugin-camera",
     "cordova-plugin-console",
@@ -64,7 +64,7 @@
     "cordova-plugin-statusbar",
     "cordova-plugin-vibration",
     "cordova-plugin-whitelist",
-    "de.appplant.cordova.plugin.email-composer@0.8.3.1"
+    "de.appplant.cordova.plugin.email-composer@0.8.2.2"
   ],
   "CordovaPluginVariables": {}
 }
