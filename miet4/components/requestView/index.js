@@ -246,6 +246,16 @@ function mailImages(){
     var email = 'kris.sistrunk@gmail.com'; // please insert the customer email address
     var subject = 'Kunde Reklamation';
     //var emailBody = 'sdfsdff';
+    $("#FirstName").val("");
+            $("#LastName").val("");
+            $("#txtReklamationMessage").val("");
+            $("#smallImage").attr('src','');
+            $("#largeImage").attr('src','');
+            $("#smallImage1").attr('src','');
+            $("#smallImage2").attr('src','');
+            $("#smallImage3").attr('src','');
+            $("#smallImage4").attr('src','');
+            $("#damagedMessage").val("");
     var emailBody =  'Firstname: '+FirstName + '%0D%0A'+'%0D%0A'+ 'Lastname: '+LastName + '%0D%0A'+'%0D%0A' + 'Reklamation Comment: ' +ReklamationMessage + '%0D%0A'+'%0D%0A'+  'Barcode Link: ' + barcodelink + '%0D%0A'+'%0D%0A'+  'Damaged Comment: '+DamagedMessage +  '%0D%0A'+'%0D%0A'+ ' Image1 = '+ image1 + '%0D%0A'+'%0D%0A'+ ' Image2 = '+image2 + '%0D%0A'+'%0D%0A'+ ' image3 = '+ image3 + '%0D%0A'+'%0D%0A' + 'and image4 = ' + image4;
 if (window.navigator.simulator === true) {
                 alert('This plugin is not available in the simulator.');
@@ -255,7 +265,8 @@ if (window.navigator.simulator === true) {
                 return true;
             } else {
                 cordova.plugins.email.open({
-                    to:          ['sistrunk@helpmespeaklanguages.com'], 
+                    // to:          ['kris.sistrunk@gmail.com'],
+                       to:          ['diemietwaesche@k-z-w.de'],
                     // cc:          ['person2@domain.com'],
                     // bcc:         ['person3@domain.com', 'person4@domain.com'],
                     attachments: ['base64:image1.jpg//'+image1, 'base64:image2.jpg//'+image2,'base64:image3.jpg//'+image3,'base64:image4.jpg//'+image4],
@@ -264,6 +275,7 @@ if (window.navigator.simulator === true) {
                     isHtml:      true
                 })
             }
+            
    // window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody;
 //    var attributes = {
 //     "Recipients": [

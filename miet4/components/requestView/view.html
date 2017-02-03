@@ -23,23 +23,23 @@
     </div>
     <div class="row">
                     <div class="button-group">
-                <a data-role="button" onclick="capturePhoto1();" >Take Photo1</a>
-                <a data-role="button" onclick="capturePhoto2();" >Take Photo2</a>
+                <a data-role="button" onclick="capturePhoto1();" >1. Bild</a>
+                <a data-role="button" onclick="capturePhoto2();" >2. Bild</a>
             </div>
         <img class="imgStyle" id="smallImage1" src="">
         <img class="imgStyle" id="smallImage2" src="">
         </div>
         <div class="row">
                     <div class="button-group">
-                <a data-role="button" onclick="capturePhoto3();" >Take Photo3</a>
-                <a data-role="button" onclick="capturePhoto4();" >Take Photo4</a>
+                <a data-role="button" onclick="capturePhoto3();" >3. Bild</a>
+                <a data-role="button" onclick="capturePhoto4();" >4. Bild</a>
             </div>
         <img class="imgStyle" id="smallImage3" src="">
         <img class="imgStyle" id="smallImage4" src="">
         </div>
         <div style="width:80%; margin-left:10%;">
                     <label>
-                        <span class="field__label" >Please Enter Comment</span>
+                        <span class="field__label" >Zusätzliche Fehlerbeschreibung</span>
 
                         <textarea rows="7" style="font-size: 20px;" id="damagedMessage"></textarea>
                     </label>
@@ -47,7 +47,7 @@
         </div>
     <div class="button-group">
         <!--<a data-role="button" data-bind="events: { click: requestViewModel.cancel }">Cancel</a>-->
-        <a class="primary" data-role="button" data-bind="events: { click: requestViewModel.submit }" onclick="mailImages()">Confirm</a>
+        <a class="primary" data-role="button" data-bind="events: { click: requestViewModel.submit }" onclick="mailImages()">Senden</a>
     </div>
     <!-- END_CUSTOM_CODE_requestView -->
 </div>

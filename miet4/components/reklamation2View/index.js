@@ -62,11 +62,12 @@ function barcodeScan(){
     function (result) {
         // wrapping in a timeout so the dialog doesn't free the app
         setTimeout(function() {
-            alert("We got a barcode\n" +
-                  "Result: " + result.text + "\n" +
-                  "Format: " + result.format + "\n" +
-                  "Cancelled: " + result.cancelled);
-                  $("#result").append('<div class="row"><div class="col u-text-right"><label class="u-text-bold">' + result.format + '</label></div><div class="col u-text-left"><span class="u-color-accent">' + result.text + '</span></div></div>');
+            // alert("We got a barcode\n" +
+            //       "Result: " + result.text + "\n" +
+            //       "Format: " + result.format + "\n" +
+            //       "Cancelled: " + result.cancelled);
+            alert("Barcode erkannt Drücken Sie OK um fortzufahren");
+                //   $("#result").append('<div class="row"><div class="col u-text-right"><label class="u-text-bold">' + result.format + '</label></div><div class="col u-text-left"><span class="u-color-accent">' + result.text + '</span></div></div>');
 localStorage.removeItem('BarcodeResult');
                 localStorage.setItem("BarcodeResult","The barcode format is: "+ result.format +" and the text is: "+ result.text);
         }, 0);

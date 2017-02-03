@@ -5,16 +5,16 @@
     "qrCodeScan": "Scan"
   },
   "home": {
-    "title": "Home View"
+    "title": "Home"
   },
   "reklamation2View": {
-    "title": "Reklamation Form",
+    "title": "Reklamation",
     "reklamation2ViewModel": {
-      "submitButton": "Confirm",
-      "cancelButton": "Cancel",
+      "submitButton": "Weiter",
+      "cancelButton": "Abbruch",
       "editableListForm1": {
         "rekNotes": {
-          "title": "Reklamation Notes"
+          "title": "Fehlerbeschreibung"
         },
         "fName": {
           "title": "First Name",
@@ -46,16 +46,16 @@
   "aboutView": {
     "title": "Über Uns",
     "aboutViewModel": {
-      "appName": "My App",
-      "appVersion": "Version 1",
-      "appDescription": "App description",
+      "appName": "Diemietwaesche App",
+      "appVersion": "Version 1.1.2",
+       "appDescription": "Diemietwaesche Mobile App",
       "contactLabel": "Contact us",
       "facebookLabel": "Like us on Facebook",
       "twitterLabel": "Follow us on Twitter"
     }
   },
   "requestView": {
-    "title": "Damage Request",
+    "title": "Zusatzbilder für Reklamation",
     "requestViewModel": {
       "submitButton": "Send To Company",
       "editableListForm5": {
